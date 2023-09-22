@@ -29,7 +29,7 @@ body {
     max-width: 20%; /* Adjust this value to make the image smaller */
     height: auto;
     margin-top: 10px;
-    margin-bottom: 10px;  /* Center the logo horizontally within its container */
+    margin-bottom: -180px;  /* Center the logo horizontally within its container */
 }
 
 #auth-form, #dashboard {
@@ -105,6 +105,49 @@ button:hover {
         width: 90%;
     }
 }
+
+
+.dashboard-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.dashboard-option {
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dashboard-option:hover {
+    background-color: #f0f0f0; /* Light up on hover */
+}
+
+.option-details {
+    display: none;
+    margin-top: 10px;
+}
+
+.dashboard-option.active {
+    background-color: #d4edda;
+}
+
+.dashboard-option.active .option-details {
+    display: block;
+}
+
+.graph-container {
+    margin-top: 20px; /* Add margin-top for spacing between the button and the graph div */
+    padding: 20px; /* Alternatively, you can use padding for spacing */
+    background-color: #f9f9f9; /* Optional background color for the graph div */
+    border-radius: 5px; /* Optional border radius for styling */
+}
+
+
 
 
 

@@ -16,8 +16,8 @@
         <div id="auth-form">
             <h2>Login</h2>
             <form id="login-form">
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="password" id="password" placeholder="Password" required>
+                <input type="email" id="email" placeholder="Email">
+                <input type="password" id="password" placeholder="Password">
                 <div class="center-button">
                     <button type="submit">Login</button>
                 </div>
@@ -35,6 +35,9 @@
                     <div class="option-details">
                         <p>More information about Option 1.</p>
                     </div>
+                    <div class="graph-container" style="display: none">
+                        <canvas id="chart1"></canvas> <!-- Add this canvas for the chart -->
+                    </div>
                 </div>
                 <div class="dashboard-option">
                     <h3>Option 2</h3>
@@ -48,5 +51,6 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
