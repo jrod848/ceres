@@ -1,148 +1,300 @@
-body {
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*, html, body {
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-::placeholder {
-    color: #4c9b5e;
-    opacity: 1; 
-  }
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+body {
     min-height: 100vh;
+    background: #fff;
 }
 
-.logo-container {
+/* LOGIN */
+.loginBody {
+    height: 100vh;
     display: flex;
+    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    background: #f0f0f0;
+}
+
+.loginContainer {
+    width: 75%;
+    height: 20%;
+    display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 17px 10px rgb(0 0 0 / 30%);
+    border-radius: 20px;
+    background: #fff;
 }
 
 .logo {
-    max-width: 20%; /* Adjust this value to make the image smaller */
-    height: auto;
-    margin-top: 10px;
-    margin-bottom: -180px;  /* Center the logo horizontally within its container */
+    width: 100%; 
+    height: 20%;
+    object-fit: cover;
 }
 
-#auth-form, #dashboard {
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 80%;
-    max-width: 400px;
+.loginContainer h3.title {
+    margin-bottom: 15px;
+    caret-color: transparent;
 }
 
-#auth-form h2{
-    font-size: 30px;
-    margin-bottom: 30px;
-    color: #4c9b5e;
-    position: relative;
-}
-
-#auth-form h2::after{
-    content: '';
-    width: 30px;
-    height: 4px;
-    border-radius: 3px;
-    background: #4c9b5e;
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.error {
-    color: red;
-}
-
-input{
-    width: 80%;
-    border-radius: 12px;
-    border: 0;
-    outline: 0;
-    padding: 18px 15px;
-    background: #eaeaea;
-    margin: 15px 0;
-}
-
-button {
-    width: 150px;
-    background: #4c9b5e;
-    color: #fff;
-    height: 40px;
-    border-radius: 12px;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
-    transition: all 0.5s;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #60926c;
-}
-
-#login-form {
-    margin-bottom: 20px; /* Add margin to separate the button from input fields */
-}
-
-.center-button {
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    #auth-form, #dashboard {
-        width: 90%;
-    }
-}
-
-
-.dashboard-options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.dashboard-option {
-    background-color: #eee;
-    border-radius: 5px;
+#loginBtn {
+    width: 68%;
     padding: 10px;
-    width: calc(33.33% - 20px);
-    margin-bottom: 20px;
+    color: white;
+    background: #84B272;
+    border-radius: 20px;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s;
+    margin-top: 40px;
 }
 
-.dashboard-option:hover {
-    background-color: #f0f0f0; /* Light up on hover */
+.loginForm {
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.option-details {
+.text-input {
+    background: #e6e6e6;
+    height: 40px;
+    display: flex;
+    width: 90%;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0 15px;
+    margin: 5px 0;
+}
+
+.text-input input {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.text-input i {
+    color: #686868;
+}
+
+::placeholder {
+    color: #9a9a9a;
+}
+
+#errorMessage {
+    caret-color: transparent;
+}
+
+/* NAVIGATION */
+.dashboardBody {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.graphContainer {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+.navigation {
+    caret-color: transparent;
+    position: relative;
     display: none;
-    margin-top: 10px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 70px;
+    border-top-right-radius:  10px;
+    border-bottom-right-radius: 10px;
+    box-sizing: initial;
+    border-left: 5px solid #84B272;
+    background: #84B272;
+    transition:  width 0.5s;
+    overflow-x: hidden;
 }
 
-.dashboard-option.active {
-    background-color: #d4edda;
+.navigation.active {
+    width: 300px;
 }
 
-.dashboard-option.active .option-details {
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 40px;
+}
+
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.navigation ul li b:nth-child(1) {
+    position: absolute;
+    top: -20px;
+    height: 20px;
+    width: 100%;
+    background: #fff;
+    display: none;
+}
+
+.navigation ul li b:nth-child(1):before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-bottom-right-radius: 20px;
+    background: #84B272;
+}
+
+.navigation ul li b:nth-child(2) {
+    position: absolute;
+    bottom: -20px;
+    height: 20px;
+    width: 100%;
+    background: #fff;
+    display: none;
+}
+
+.navigation ul li b:nth-child(2):before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-top-right-radius: 20px;
+    background: #84B272;
+}
+
+.navigation ul li.active b:nth-child(1),
+.navigation ul li.active b:nth-child(2) {
     display: block;
 }
 
-.graph-container {
-    margin-top: 20px; /* Add margin-top for spacing between the button and the graph div */
-    padding: 20px; /* Alternatively, you can use padding for spacing */
-    background-color: #f9f9f9; /* Optional background color for the graph div */
-    border-radius: 5px; /* Optional border radius for styling */
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: normal;
+}
+
+.navigation ul li a .icon ion-icon2 {
+    font-size: 1.5em;
+}
+
+.navigation ul li.active {
+    background: #fff;
+}
+
+.navigation ul li.active a {
+    color: #333;
+}
+
+.toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #84B272;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle.active {
+    background: #ff4d89;
+}
+
+.toggle ion-icon {
+    position: absolute;
+    color: #fff;
+    font-size: 34px;
+    display: none;
+}
+
+.toggle ion-icon.open,
+.toggle.active ion-icon.close {
+    display: block;
+}
+
+.toggle ion-icon.close,
+.toggle.active ion-icon.open {
+    display: none;
+}
+
+/* Media adjs */
+@media (min-width: 1250px) {
+    .loginContainer {
+        width: 25%;
+    }
+    .navigation {
+        display: flex;
+    }
+   
+}
+
+@media (min-width: 768px) {
+    .loginContainer {
+        width: 50%;
+    }
+    .logo {
+        width: 50%; 
+        height: 20%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .loginContainer {
+        width: 20%;
+    }
+    .logo {
+        width: 30%; 
+        height: 20%;
+    }
 }
