@@ -27,41 +27,15 @@
     </div>
     
     <div class="dashboardBody" style="display: none">
-        <div class="navigation">
+        <img class="dashboardLogo" src="src/Logo.png" alt="Logo">
+
+        <div class="dashboardName">
+            <h3>Welcome, Jill</h3>
+        </div>
+
+        <div class="navigation" style="display: flex;">
             <ul>
-                <li class="list active">
-                    <b></b>
-                    <b></b>
-                    <a>
-                        <span class="icon"><ion-icon name="sunny-outline"></ion-icon></span>
-                        <span class="title">Sunlight</span>
-                    </a>
-                </li>
-                <li class="list">
-                    <b></b>
-                    <b></b>
-                    <a>
-                        <span class="icon"><ion-icon name="water-outline"></ion-icon></span>
-                        <span class="title">Soil Moisture</span>
-                    </a>
-                </li>
-                <li class="list">
-                    <b></b>
-                    <b></b>
-                    <a>
-                        <span class="icon"><ion-icon name="thermometer-outline"></ion-icon></span>
-                        <span class="title">Temperature</span>
-                    </a>
-                </li>
-                <li class="list">
-                    <b></b>
-                    <b></b>
-                    <a>
-                        <span class="icon"><ion-icon name="nutrition-outline"></ion-icon></span>
-                        <span class="title">Micronutrients</span>
-                    </a>
-                </li>
-                <li class="list">
+                <li class="list" data-container-id="graph">
                     <b></b>
                     <b></b>
                     <a class="logOut">
@@ -72,8 +46,132 @@
             </ul>
         </div>
 
-        <div class="graphContainer" style="position: relative; height:40vh; width:80vw">
-            <canvas id="chart1"></canvas>
+        <div class="dashboard" data-container-id="dashboard">
+            <div class="chart-average" graph-id="Sunlight">
+                <span class="iconDashboard"><ion-icon name="sunny-outline"></ion-icon></span>
+                <p id="average-Sunlight">Sunlight</p>
+            </div>
+            <div class="chart-average" graph-id="Soil Moisture">
+                <span class="iconDashboard"><ion-icon name="water-outline"></ion-icon></span>
+                <p id="average-Soil Moisture">Soil Moisture</p>
+            </div>
+            <div class="chart-average" graph-id="Temperature">
+                <span class="iconDashboard"><ion-icon name="thermometer-outline"></ion-icon></span>
+                <p id="average-Temperature">Temperature</p>
+            </div>
+            <div class="chart-average" graph-id="Micronutrients">
+                <span class="iconDashboard"><ion-icon name="nutrition-outline"></ion-icon></span>
+                <p id="average-Micronutrients">Micronutrients</p>
+            </div>
+        </div>
+
+        <div class="dashboardButtonsContainer">
+            <div class="dashboardButtons" data-type="line">
+                <p>Line Chart</p>
+            </div>
+            <div class="dashboardButtons" data-type="table">
+                <p>Tabular Real Time Data</p>
+            </div>
+            <div class="dashboardButtons" data-type="prediction">
+                <p>Predicted Data</p>
+            </div>
+        </div>
+
+        <div class="dashboardGraph">
+            <div class="graphContainer" style="display: none; position: relative; width:80vw;" data-container-id="graph">
+                <canvas id="chart1" graph-id="Sunlight"></canvas>
+                <table id="table1" graph-id="Sunlight">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Sunlight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be dynamically populated with data -->
+                    </tbody>
+                </table>
+                <canvas id="chart2" graph-id="Soil Moisture"></canvas>
+                <table id="table2" graph-id="Soil Moisture">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Soil Moisture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be dynamically populated with data -->
+                    </tbody>
+                </table>
+                <canvas id="chart3" graph-id="Temperature"></canvas>
+                <table id="table3" graph-id="Temperature">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Temperature</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be dynamically populated with data -->
+                    </tbody>
+                </table>
+                <canvas id="chart4" graph-id="Micronutrients"></canvas>
+                <table id="table4" graph-id="Micronutrients">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Micronutrients</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be dynamically populated with data -->
+                    </tbody>
+                </table>
+                <table id="table5" graph-id="pre-Sunlight">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Sunlight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be dynamically populated with data -->
+                    </tbody>
+                </table>
+                <table id="table6" graph-id="pre-Soil Moisture">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Soil Moisture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be dynamically populated with data -->
+                    </tbody>
+                </table>
+                <table id="table7" graph-id="pre-Temperature">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Temperature</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be dynamically populated with data -->
+                    </tbody>
+                </table>
+                <table id="table7" graph-id="pre-Micronutrients">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Micronutrients</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be dynamically populated with data -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     
         <div class="toggle">

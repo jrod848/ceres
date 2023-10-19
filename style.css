@@ -96,34 +96,28 @@ body {
 }
 
 /* NAVIGATION */
-.dashboardBody {
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-}
+
 
 .graphContainer {
     display: flex;
     flex: 1;
-    overflow: hidden;
     margin-top: 70px;
 }
 
 .navigation {
-    caret-color: transparent;
-    position: relative;
-    display: none;
+    position: fixed; /* Position the navigation bar fixed to the right */
     top: 0;
-    left: 0;
+    right: 0;
     bottom: 0;
-    width: 70px;
-    border-top-right-radius:  10px;
+    width: 1px;
+    border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     box-sizing: initial;
     border-left: 5px solid #84B272;
     background: #84B272;
-    transition:  width 0.5s;
+    transition: width 0.5s;
     overflow-x: hidden;
+    z-index: 2;
 }
 
 .navigation.active {
@@ -245,6 +239,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 .toggle.active {
@@ -297,4 +292,118 @@ body {
         width: 30%; 
         height: 20%;
     }
+}
+
+.dashboardBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-average {
+    margin: 5px;
+    padding: 30px 50px 30px 50px;
+    background-color: #fff;
+    border: 3px solid #84B272;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.chart-average:hover {
+    background-color: #dfe3df; /* Change background color on hover */
+}
+
+.chart-average.active {
+    background-color: #dfe3df;
+}
+
+.dashboardLogo {
+    width: 250px; 
+    height: 100px;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.dashboardName {
+    margin-top: 30px;
+    position: fixed;
+    right: 100px;
+    top: 0;
+}
+
+.iconDashboard ion-icon {
+    font-size: 6em;
+    color:#84B272;
+}
+
+.dashboard {
+    display: flex;
+    margin-top: 150px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.dashboardGraph {
+    display: flex;
+    background-color: #fff;
+    border: 3px solid #84B272;
+    border-radius: 20px;
+    width: 95%;
+    height: 50vh;
+    margin-top: 40px;
+}
+
+.dashboardButtonsContainer {
+    display: none;
+    margin-top: 40px;
+    border-radius: 20px;
+    width: 92%;
+}
+
+.dashboardButtons {
+    background-color: #fff;
+    border: 3px solid #84B272;
+    padding: 0 10px 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dashboardButtons.active{
+    background-color: #dfe3df;
+}
+
+.dashboardButtons:hover {
+    background-color: #dfe3df;
+}
+
+table {
+    border-collapse: collapse; /* Collapse table borders */
+    margin: 0 auto; /* Center the table horizontally */
+    width: 90%;
+    height: 95%;
+}
+
+th {
+    border-bottom: 3px solid #84B272; /* Add borders to table cells */
+    padding: 8px; /* Add some padding for spacing */
+    text-align: center;
+}
+
+td {
+    border-bottom: 2px solid #84B272; /* Add borders to table cells */
+    padding: 8px; /* Add some padding for spacing */
+    text-align: center; /* Center text horizontally in cells */
+}
+
+th {
+    background-color: #f2f2f2; /* Background color for table headers */
+    font-weight: bold; /* Make headers bold */
 }
