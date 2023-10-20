@@ -27,10 +27,10 @@
     </div>
     
     <div class="dashboardBody" style="display: none">
-        <img class="dashboardLogo" src="src/Logo.png" alt="Logo">
+        <div class="topBar">
+            <img class="dashboardLogo" src="src/Logo.png" alt="Logo">
 
-        <div class="dashboardName">
-            <h3>Welcome, Jill</h3>
+        <div class="dashboardName"><h3></h3></div>
         </div>
 
         <div class="navigation" style="display: flex;">
@@ -59,8 +59,9 @@
                 <span class="iconDashboard"><ion-icon name="thermometer-outline"></ion-icon></span>
                 <p id="average-Temperature">Temperature</p>
             </div>
-            <div class="chart-average" graph-id="Micronutrients">
+            <div id="microLetters" class="chart-average" graph-id="Micronutrients">
                 <span class="iconDashboard"><ion-icon name="nutrition-outline"></ion-icon></span>
+                <p>Micronutrients</p>
                 <p id="average-Micronutrients">Micronutrients</p>
             </div>
         </div>
@@ -160,7 +161,7 @@
                         <!-- Table rows will be dynamically populated with data -->
                     </tbody>
                 </table>
-                <table id="table7" graph-id="pre-Micronutrients">
+                <table id="table8" graph-id="pre-Micronutrients">
                     <thead>
                         <tr>
                             <th>Time</th>

@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-*, html, body {
+*,
+html,
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -23,20 +25,15 @@ body {
 }
 
 .loginContainer {
+    margin-top: 30px;
     width: 75%;
-    height: 20%;
+    height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 17px 10px rgb(0 0 0 / 30%);
     border-radius: 20px;
     background: #fff;
-}
-
-.logo {
-    width: 100%; 
-    height: 20%;
-    object-fit: cover;
 }
 
 .loginContainer h3.title {
@@ -96,16 +93,15 @@ body {
 }
 
 /* NAVIGATION */
-
-
 .graphContainer {
     display: flex;
     flex: 1;
-    margin-top: 70px;
+    margin-top: 10px;
 }
 
 .navigation {
-    position: fixed; /* Position the navigation bar fixed to the right */
+    position: fixed;
+    /* Position the navigation bar fixed to the right */
     top: 0;
     right: 0;
     bottom: 0;
@@ -113,20 +109,19 @@ body {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     box-sizing: initial;
-    border-left: 5px solid #84B272;
-    background: #84B272;
+    background: #688D5A;;
     transition: width 0.5s;
     overflow-x: hidden;
     z-index: 2;
 }
 
 .navigation.active {
-    width: 300px;
+    width: 150px;
 }
 
-.navigation ul{
+.navigation ul {
     position: absolute;
-    top: 0;
+    top: 40px;
     left: 0;
     width: 100%;
     padding-left: 5px;
@@ -228,7 +223,7 @@ body {
 }
 
 .toggle {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 20px;
     width: 50px;
@@ -263,35 +258,84 @@ body {
     display: none;
 }
 
-/* Media adjs */
 @media (min-width: 1250px) {
     .loginContainer {
-        width: 25%;
+        width: 50%;
     }
+
     .navigation {
         display: flex;
     }
-   
+
+    .dashboardLogo {
+        width: 30%;
+    }
+
+    .chart-average {
+        padding: 30px 50px 30px 50px;
+    }
+
 }
 
 @media (min-width: 768px) {
     .loginContainer {
         width: 50%;
     }
-    .logo {
-        width: 50%; 
-        height: 20%;
+
+    .dashboardLogo {
+        width: 40%;
+    }
+
+    .iconDashboard {
+        font-size: 4em;
+    }
+}
+
+@media (min-width: 500px) {
+    .dashboardLogo {
+        width: 50%;
+    }
+}
+
+@media (min-width: 10px) {
+    .dashboardLogo {
+        width: 30%;
+    }
+
+    .chart-average {
+        padding: 10px 30px 10px 30px;
+    }
+
+    .iconDashboard {
+        font-size: 2em;
     }
 }
 
 @media (min-width: 1600px) {
     .loginContainer {
-        width: 20%;
+        width: 30%;
     }
-    .logo {
-        width: 30%; 
+
+    .dashboardLogo {
+        width: 10%;
         height: 20%;
     }
+}
+
+.topBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-top: 30px;
+}
+
+.dashboardLogo {
+    height: 20%;
+    object-fit: cover;
+    left: 0;
+    top: 0;
 }
 
 .dashboardBody {
@@ -302,8 +346,8 @@ body {
 
 .chart-average {
     margin: 5px;
-    padding: 30px 50px 30px 50px;
-    background-color: #fff;
+    width: 160px;
+    background-color: #83B271;
     border: 3px solid #84B272;
     font-weight: bold;
     font-size: 14px;
@@ -312,37 +356,27 @@ body {
 }
 
 .chart-average:hover {
-    background-color: #dfe3df; /* Change background color on hover */
+    background-color: #688D5A;
+    /* Change background color on hover */
 }
 
 .chart-average.active {
-    background-color: #dfe3df;
-}
-
-.dashboardLogo {
-    width: 250px; 
-    height: 100px;
-    object-fit: cover;
-    position: fixed;
-    left: 0;
-    top: 0;
+    background-color: #688D5A;
 }
 
 .dashboardName {
     margin-top: 30px;
-    position: fixed;
     right: 100px;
     top: 0;
 }
 
 .iconDashboard ion-icon {
-    font-size: 6em;
-    color:#84B272;
+    color: #000000;
 }
 
 .dashboard {
     display: flex;
-    margin-top: 150px;
+    margin-top: 30px;
     flex-direction: row;
     justify-content: space-evenly;
     text-align: center;
@@ -357,7 +391,7 @@ body {
     border: 3px solid #84B272;
     border-radius: 20px;
     width: 95%;
-    height: 50vh;
+    height: 42vh;
     margin-top: 40px;
 }
 
@@ -369,41 +403,64 @@ body {
 }
 
 .dashboardButtons {
-    background-color: #fff;
-    border: 3px solid #84B272;
+    background-color: #83B271;
     padding: 0 10px 0 10px;
-    border-radius: 5px;
     cursor: pointer;
 }
 
-.dashboardButtons.active{
-    background-color: #dfe3df;
+.dashboardButtons.active {
+    background-color: #688D5A;
+    border: 3px solid #83B271;
 }
 
 .dashboardButtons:hover {
-    background-color: #dfe3df;
+    background-color: #688D5A;
+    border: 3px solid #83B271;
+}
+
+.dashboardButtons:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.dashboardButtons:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 table {
-    border-collapse: collapse; /* Collapse table borders */
-    margin: 0 auto; /* Center the table horizontally */
+    border-collapse: collapse;
+    /* Collapse table borders */
+    margin: 0 auto;
+    /* Center the table horizontally */
     width: 90%;
     height: 95%;
 }
 
 th {
-    border-bottom: 3px solid #84B272; /* Add borders to table cells */
-    padding: 8px; /* Add some padding for spacing */
+    border-bottom: 3px solid #84B272;
+    /* Add borders to table cells */
+    padding: 8px;
+    /* Add some padding for spacing */
     text-align: center;
 }
 
 td {
-    border-bottom: 2px solid #84B272; /* Add borders to table cells */
-    padding: 8px; /* Add some padding for spacing */
-    text-align: center; /* Center text horizontally in cells */
+    border-bottom: 2px solid #84B272;
+    /* Add borders to table cells */
+    padding: 8px;
+    /* Add some padding for spacing */
+    text-align: center;
+    /* Center text horizontally in cells */
 }
 
 th {
-    background-color: #f2f2f2; /* Background color for table headers */
-    font-weight: bold; /* Make headers bold */
+    background-color: #f2f2f2;
+    /* Background color for table headers */
+    font-weight: bold;
+    /* Make headers bold */
+}
+
+#average-Micronutrients {
+    font-size: 0.7em;
 }

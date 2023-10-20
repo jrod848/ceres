@@ -14,7 +14,7 @@ const averageButton = document.querySelectorAll(".chart-average");
 const dashBtn = document.querySelectorAll(".dashboardButtons");
 const dashBtnContainer = document.querySelector(".dashboardButtonsContainer");
 const dashboardGraph = document.querySelector(".dashboardGraph");
-const tables = ["table1", "table2", "table3", "table4","table5","table6","table7"];
+const tables = ["table1", "table2", "table3", "table4", "table5", "table6", "table7", "table8"];
 const charts = [];
 const containerMapping = [];
 var updatingData
@@ -29,7 +29,7 @@ for (let i = 0; i < averageButton.length; i++) {
     const graphId = averageButton[i].getAttribute("graph-id");
     if (graphId) {
         averageButton[i].onclick = function () {
-            dashboardGraph.style.height = "50vh";
+            dashboardGraph.style.height = "42vh";
             dashboardGraph.style.margin = "0";
             dashBtnContainer.style.display = "flex";
             resetList(averageButton, 'chart-average')
@@ -48,10 +48,10 @@ for (let i = 0; i < dashBtn.length; i++) {
         if (buttonNumber >= 0 || buttonNumber <= 3) {
             const graphId = averageButton[buttonNumber].getAttribute("graph-id");
             const dataType = dashBtn[i].getAttribute("data-type");
-            if(dataType == "table" || dataType == "prediction"){
+            if (dataType == "table" || dataType == "prediction") {
                 dashboardGraph.style.height = "auto";
             } else {
-                dashboardGraph.style.height = "50vh";
+                dashboardGraph.style.height = "42vh";
             }
             resetList(dashBtn, 'dashboardButtons');
             setList(dashBtn, i, 'dashboardButtons active');
@@ -73,7 +73,24 @@ function addDataToTable(tableId, timeData, valueData) {
     const timeCell = document.createElement("td");
     timeCell.textContent = timeData;
     const valueCell = document.createElement("td");
-    valueCell.textContent = valueData;
+    if (tableId == "table1") {
+        valueCell.textContent = Math.round(valueData) + " lm";
+    } else if(tableId == "table2") {
+        valueCell.textContent = Math.round(valueData) + "%";
+    } else if(tableId == "table3") {
+        valueCell.innerHTML = Math.round(valueData) + "&deg F";
+    } else if(tableId == "table4") {
+        valueCell.textContent = Math.round(valueData) + " P | " + Math.round(valueData) + " K | " + Math.round(valueData) + " N";
+    } else if(tableId == "table5") {
+        valueCell.textContent = Math.round(valueData) + " lm";
+    } else if(tableId == "table6") {
+        valueCell.textContent = Math.round(valueData) + "%";
+    } else if(tableId == "table7") {
+        valueCell.innerHTML = Math.round(valueData) + "&deg F";
+    } else if(tableId == "table8") {
+        valueCell.textContent = Math.round(valueData) + " P | " + Math.round(valueData) + " K | " + Math.round(valueData) + " N";
+    }
+
     newRow.appendChild(timeCell);
     newRow.appendChild(valueCell);
     tbody.appendChild(newRow);
@@ -143,9 +160,9 @@ function showTables(graphId, dataType) {
             }
         });
     } else {
-        tableElements.forEach((table,index) => {
+        tableElements.forEach((table, index) => {
             const tableId = table.getAttribute("graph-id");
-            if (tableId === "pre-"+graphId && index > 3) {
+            if (tableId === "pre-" + graphId && index > 3) {
                 table.style.display = "table";
             } else {
                 table.style.display = "none";
@@ -198,7 +215,19 @@ function updateChart(chart, graphId, value) {
         // Display the average in the corresponding div
         const averageDiv = document.getElementById(`average-${graphId}`);
         if (averageDiv) {
-            averageDiv.innerHTML = `${graphId}<br>${average}`;
+            if (graphId == "Sunlight") {
+                averageDiv.innerHTML = `${graphId}<br>${average} lm`;
+            } else if (graphId == "Temperature") {
+                averageDiv.innerHTML = `${graphId}<br>${average}&deg F`;
+            } else if (graphId == "Micronutrients") {
+                averageDiv.innerHTML = `${average} P | ${average} K | ${average} N`;
+            } else if (graphId == "Soil Moisture") {
+                averageDiv.innerHTML = `${graphId}<br>${average}%`;
+            }
+
+            else {
+                averageDiv.innerHTML = `${graphId}<br>${average}`;
+            }
         }
     } else {
         console.error("Chart is not defined.");
@@ -207,8 +236,8 @@ function updateChart(chart, graphId, value) {
 
 function toggle() {
     if (navigation.style.display != "flex"
-        || (navigation.style.display == "flex" && navigation.classList.contains('active') && breakpoint() == 'md')
-        || (navigation.style.display == "flex" && !navigation.classList.contains('active') && !menuToggle.classList.contains('active') && breakpoint() == 'md')) {
+        || (navigation.style.display == "flex" && navigation.classList.contains('active'))
+        || (navigation.style.display == "flex" && !navigation.classList.contains('active') && !menuToggle.classList.contains('active'))) {
         navigation.style.display = "flex";
     } else {
         navigation.style.display = "none";
@@ -238,7 +267,7 @@ function logIn() {
                 const randomValue2 = Math.random() * 200;
                 updateChart(charts[index], graphId, randomValue);
                 addDataToTable(tables[index], timeString, randomValue);
-                addDataToTable(tables[index + 3], timeString, randomValue2);
+                addDataToTable(tables[index + 4], timeString, randomValue2);
             });
             counter++;
         } else {
@@ -258,6 +287,8 @@ function logOut() {
     clearInterval(updatingData);
     menuToggle.classList.toggle('active');
     navigation.classList.toggle('active');
+    hideAllGraphs();
+    hideAllTable();
 };
 
 function resetList(element, className) {
